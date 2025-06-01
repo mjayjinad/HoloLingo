@@ -1,0 +1,23 @@
+# ninja log v5
+15	3947	7704325778212083	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c78b97939f1fa85f
+123	787	7704325746630884	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	f4b16cd6f7039b22
+3948	4082	7704325779646704	C:/Users/mjayj/Downloads/Unity-PassthroughCameraApiSamples-main/Unity-PassthroughCameraApiSamples-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1446r244/obj/arm64-v8a/libgame.so	9c3cf4815a2abc9e
+24	3347	7704325771896922	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b355b4c318d331dc
+60	3190	7704325769476432	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	469c97e5dd1ab247
+789	1182	7704325750257876	C:/Users/mjayj/Downloads/Unity-PassthroughCameraApiSamples-main/Unity-PassthroughCameraApiSamples-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1446r244/obj/arm64-v8a/libswappywrapper.so	23f0b47967af4096
+106	3093	7704325768367879	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	509a422ee5f47e85
+40	2958	7704325768045251	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	97e5f35821e43b2a
+88	3765	7704325776231379	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	edd9586fb62d6861
+50	3149	7704325768956652	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	656200f337770410
+72	3740	7704325775756153	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	afda7554ee753440
+112	1071	7704341716610225	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	f4b16cd6f7039b22
+1072	1554	7704341720736440	C:/Users/mjayj/Downloads/Unity-PassthroughCameraApiSamples-main/Unity-PassthroughCameraApiSamples-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1446r244/obj/arm64-v8a/libswappywrapper.so	23f0b47967af4096
+100	2440	7704341730168912	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	509a422ee5f47e85
+29	2443	7704341730188995	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	97e5f35821e43b2a
+64	2498	7704341730831609	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	469c97e5dd1ab247
+44	2516	7704341730816441	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	656200f337770410
+55	2710	7704341732799413	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	b355b4c318d331dc
+85	3098	7704341736737704	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	edd9586fb62d6861
+73	3110	7704341736906941	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	afda7554ee753440
+19	3298	7704341738708036	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	c78b97939f1fa85f
+3298	3505	7704341740932092	C:/Users/mjayj/Downloads/Unity-PassthroughCameraApiSamples-main/Unity-PassthroughCameraApiSamples-main/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1446r244/obj/arm64-v8a/libgame.so	9c3cf4815a2abc9e
