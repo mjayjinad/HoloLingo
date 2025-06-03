@@ -14,7 +14,8 @@ public class PassthroughCameraDescription : MonoBehaviour
     [SerializeField] private OpenAIConfiguration configuration;
     [SerializeField] private AppGameManager appGameManager;
     [SerializeField] private Texture2D imageToAnalyze;
-    [SerializeField] private TMP_Text resultTxt;
+    //[SerializeField] private Renderer quadRenderer;
+    [SerializeField] private string textureName;
 
     public event Action<string> OnObjectRecognized;
     public bool runImageSubmission;
@@ -51,6 +52,8 @@ public class PassthroughCameraDescription : MonoBehaviour
 
     private void TakePicture()
     {
+        //quadRenderer.gameObject.SetActive(true);
+
         int width = webCamTextureManager.WebCamTexture.width;
         int height = webCamTextureManager.WebCamTexture.height;
 
@@ -64,6 +67,7 @@ public class PassthroughCameraDescription : MonoBehaviour
 
         picture.SetPixels32(pixels);
         picture.Apply();
+        //quadRenderer.material.SetTexture(textureName, picture);
     }
 
     private async void SubmitImage()
@@ -108,15 +112,13 @@ public class PassthroughCameraDescription : MonoBehaviour
         var result = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
 
         Debug.Log("here is the result" + result.FirstChoice);
-        resultTxt.text = result.FirstChoice;
 
         string recognizedObjectName = result.FirstChoice;
 
         Debug.Log("AI recognized object: " + recognizedObjectName);
-        resultTxt.text = recognizedObjectName;
 
         // Notify subscribers with recognized text
-        OnObjectRecognized?.Invoke(recognizedObjectName);
         appGameManager.PromptUser();
+        OnObjectRecognized?.Invoke(recognizedObjectName);
     }
 }

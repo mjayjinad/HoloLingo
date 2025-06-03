@@ -110,6 +110,7 @@ public class SpeechToTextManager : MonoBehaviour
             default: return "en-US";
         }
     }
+
     private string GetApiKey()
     {
         return Resources.Load<TextAsset>("Security/APIKey").ToString();

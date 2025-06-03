@@ -19,6 +19,15 @@ public enum Languages
     bg = 4
 }
 
+[Serializable]
+public enum Voices
+{
+    Aoede,
+    Gacrux,
+    Puck,
+    Kore,
+}
+
 public class TranslationManager : MonoBehaviour
 {
     private string _translationApiUrl = "https://translation.googleapis.com/language/translate/v2?key=";

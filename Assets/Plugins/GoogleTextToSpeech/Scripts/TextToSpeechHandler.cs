@@ -16,7 +16,7 @@ namespace GoogleTextToSpeech.Scripts
 
         private string _googleTextToSpeechUrl = "https://texttospeech.googleapis.com/v1/text:synthesize";
 
-        public void GetSpeechAudioFromGoogle(string textToConvert, string voice, Action<AudioClip> audioClipReceived,
+        public void GetSpeechAudioFromGoogle(string textToConvert, string langCode, string voiceName, Action<AudioClip> audioClipReceived,
             Action<BadRequestData> errorReceived)
         {
             _actionRequestReceived += (requestData => RequestReceived(requestData, audioClipReceived));
@@ -37,13 +37,15 @@ namespace GoogleTextToSpeech.Scripts
                 voice =
                     new Voice()
                     {
-                        languageCode = voice,
+                        //languageCode = voice,
+                        languageCode = langCode,
+                        name = voiceName // <-- add voice name here
                     },
                 audioConfig =
                     new AudioConfig()
                     {
                         audioEncoding = "MP3",
-                        pitch = 1f,
+                        //pitch = 1f,
                         speakingRate = 1f
                     }
             };
