@@ -37,9 +37,8 @@ namespace GoogleTextToSpeech.Scripts
                 voice =
                     new Voice()
                     {
-                        //languageCode = voice,
                         languageCode = langCode,
-                        name = voiceName // <-- add voice name here
+                        name = voiceName
                     },
                 audioConfig =
                     new AudioConfig()

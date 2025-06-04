@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Meta.WitAi.Lib;
+using Oculus.Interaction.Samples;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,19 +11,26 @@ public class AppGameManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TMP_Text wordPromptTxt;
     [SerializeField] private Toggle micToggle;
+    [SerializeField] private Button homeBtn;
+    [SerializeField] private Button startBtn;
     [SerializeField] private GameObject micUI;
+    [SerializeField] private GameObject homeUI;
+    [SerializeField] private GameObject mainPageUI;
 
     [Header("Logic Referrences")]
     [SerializeField] private AITranslationConnector m_translationConnector;
+    [SerializeField] private DropDownGroup m_dropdownGroup;
 
     [Header("Prompts Templates")]
-    [SerializeField] private List<string> promptTemplates = new List<string>()
+    [SerializeField]
+    private List<string> promptTemplates = new List<string>()
     {
-        "Say the word for this in {0}.",
-        "Can you say this word in {0}?",
-        "Try saying this in {0}.",
-        "How do you say this in {0}?",
-        "Please say the word for this in {0}."
+        "Say the word '{0}' out loud in {1}!",
+        "Can you say '{0}' in {1}?",
+        "Try saying '{0}' in {1}.",
+        "How do you say '{0}' in {1}? Give it a try!",
+        "How would you say '{0}' in {1}?",
+        "Please say the word '{0}' in {1}!"
     };
 
     //public bool test;
@@ -31,9 +39,12 @@ public class AppGameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        homeBtn.onClick.AddListener(OpenHomeMenu);
+        startBtn.onClick.AddListener(OpenMainUI);
+        micToggle.onValueChanged.AddListener(RecordUser);
+
         micUI.SetActive(false);
         InitializeInfo();
-        micToggle.onValueChanged.AddListener(RecordUser);
     }
 
     private void Update()
@@ -51,19 +62,19 @@ public class AppGameManager : MonoBehaviour
         infoPrompt = "Pick up an object, then press the A button to identify it.";
     }
 
-    public void ShowRandomPrompt(string languageName)
+    public void ShowRandomPrompt(string recognisedWord, string languageName)
     {
         int randomIndex = Random.Range(0, promptTemplates.Count);
         string selectedTemplate = promptTemplates[randomIndex];
 
-        string prompt = string.Format(selectedTemplate, languageName);
+        string prompt = string.Format(selectedTemplate, recognisedWord, languageName);
 
         infoPrompt = prompt;
     }
 
-    public void PromptUser()
+    public void PromptUser(string recognisedWord)
     {
-        ShowRandomPrompt(m_translationConnector.userTargetLanguage.ToDisplayString());
+        ShowRandomPrompt(recognisedWord, m_translationConnector.userTargetLanguage.ToDisplayString());
         m_translationConnector.ReadUserPromptText(infoPrompt);
         micUI.gameObject.SetActive(true);
     }
@@ -79,5 +90,31 @@ public class AppGameManager : MonoBehaviour
         micToggle.isOn = false;
         micToggle.onValueChanged.AddListener(RecordUser);
         infoPrompt = feedback;
+    }
+
+    private void OpenHomeMenu()
+    {
+        mainPageUI.SetActive(false);
+        homeUI.SetActive(true);
+    }
+
+    private void OpenMainUI()
+    {
+        InitializeInfo();
+        homeUI.SetActive(false);
+        mainPageUI.SetActive(true);
+    }
+
+    public void SelectLanguage()
+    {
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        m_translationConnector.userTargetLanguage = LanguageExtensions.ToLanguageEnum(m_dropdownGroup.Title.text);
+        Debug.Log("Selected Language: " + m_dropdownGroup.Title.text);
     }
 }

@@ -118,7 +118,7 @@ public class PassthroughCameraDescription : MonoBehaviour
         Debug.Log("AI recognized object: " + recognizedObjectName);
 
         // Notify subscribers with recognized text
-        appGameManager.PromptUser();
+        appGameManager.PromptUser(recognizedObjectName);
         OnObjectRecognized?.Invoke(recognizedObjectName);
     }
 }

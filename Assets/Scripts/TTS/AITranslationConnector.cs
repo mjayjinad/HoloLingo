@@ -15,7 +15,8 @@ public class AITranslationConnector : MonoBehaviour
     [SerializeField] private AppGameManager m_appGameManager;
 
     [SerializeField] private AudioSource _speaker;
-    private string translatedWord;
+    [HideInInspector]
+    public string translatedWord;
 
     [SerializeField] private Languages defaultLanguage = Languages.en;
     [SerializeField] private Voices voiceName = Voices.Aoede;
